@@ -22,7 +22,9 @@ class CreateEverything < ActiveRecord::Migration[5.1]
     end
 
     create_table :reviews do |t|
-      t.string :state
+      t.string :aasm_state, null: false
+      t.boolean :featured, null: false, default: false
+      t.text :content, null: false
       t.references :book, null: false, foreign_key: true
       t.references :reviewer, null: false, foreign_key: true
       t.timestamps

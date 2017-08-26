@@ -1,13 +1,16 @@
 namespace :db do
   desc "Populate database"
   task populate: :environment do
-    Book.create!(title: "Brothers Karamazov")
-    Author.create!(name: "Fyodor Dostoevsky")
-    Book.last.authors << Author.last
+    reviewer_fred = Reviewer.create!(name: "Fred Fredson")
+    
+    brothers_k = Book.create!(title: "Brothers Karamazov")
+    fyodor_d = Author.create!(name: "Fyodor Dostoevsky")
+    brothers_k.authors << fyodor_d
+    Review.create!(book: brothers_k, reviewer: reviewer_fred, content: "a classic")
 
-    Book.create!(title: "The Fatal Eggs")
-    Author.create!(name: "Mikhail Bulgakov")
-    Book.last.authors << Author.last
+    fatal_e = Book.create!(title: "The Fatal Eggs")
+    mikhail_b = Author.create!(name: "Mikhail Bulgakov")
+    fatal_e.authors << mikhail_b
 
   end
 end
