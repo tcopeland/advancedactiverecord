@@ -1,5 +1,5 @@
-reviewer1 = Reviewer.create!(name: Faker::Name.name)
-reviewer2 = Reviewer.create!(name: Faker::Name.name)
+reviewer1 = Reviewer.create!(name: "Sally Sallysdaughter")
+reviewer2 = Reviewer.create!(name: "Fred Fredson")
 
 brothers_k = Book.create!(title: "The Brothers Karamazov")
 fyodor_d = Author.create!(name: "Fyodor Dostoevsky")
