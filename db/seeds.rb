@@ -1,5 +1,6 @@
 reviewer1 = Reviewer.create!(name: "Sally Sallysdaughter")
 reviewer2 = Reviewer.create!(name: "Fred Fredson")
+reviewer3 = Reviewer.create!(name: "Jim Jimson")
 
 brothers_k = Book.create!(title: "The Brothers Karamazov")
 fyodor_d = Author.create!(name: "Fyodor Dostoevsky")
