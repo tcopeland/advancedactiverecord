@@ -16,6 +16,12 @@ class CreateEverything < ActiveRecord::Migration[5.1]
       t.index [:author_id, :book_id], unique: true
     end
 
+    create_table :ratings do |t|
+      t.integer :score, null: false
+      t.boolean :approved, null: false, default: false
+      t.references :book, null: false, foreign_key: true
+    end
+
     create_table :reviewers do |t|
       t.string :name
       t.timestamps

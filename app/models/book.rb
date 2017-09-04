@@ -6,6 +6,6 @@ class Book < ApplicationRecord
       where(featured: true).first
     end
   end
-  
+  has_many :ratings
   has_one :featured_review, -> { featured }, class_name: 'Review'
 end

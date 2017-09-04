@@ -11,3 +11,7 @@ Review.create!(book: brothers_k, reviewer: reviewer1, content: "great", featured
 fatal_e = Book.create!(title: "The Fatal Eggs")
 mikhail_b = Author.create!(name: "Mikhail Bulgakov")
 fatal_e.authors << mikhail_b
+
+low_rating = Rating.create!(score: 1, approved: false, book: fatal_e)
+high_rating_fe = Rating.create!(score: 5, approved: true, book: fatal_e)
+high_rating_bk = Rating.create!(score: 5, approved: true, book: brothers_k)
