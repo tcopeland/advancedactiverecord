@@ -7,5 +7,6 @@ class Book < ApplicationRecord
     end
   end
   has_many :ratings
+  has_many :all_ratings, -> { unscope(where: :approved) }, class_name: 'Rating'
   has_one :featured_review, -> { featured }, class_name: 'Review'
 end
