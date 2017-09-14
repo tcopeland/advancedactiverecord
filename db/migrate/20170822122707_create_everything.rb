@@ -20,6 +20,7 @@ class CreateEverything < ActiveRecord::Migration[5.1]
       t.integer :score, null: false
       t.boolean :approved, null: false, default: false
       t.references :book, null: false, foreign_key: true
+      t.timestamps
     end
 
     create_table :reviewers do |t|

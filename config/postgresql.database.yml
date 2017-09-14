@@ -1,0 +1,16 @@
+development:
+  adapter: postgresql
+  username: critic
+  database: critic_development
+  template: template0
+  port: 5432
+  host: localhost
+
+test:
+  adapter: postgresql
+  username: critic
+  database: critic_test
+  template: template0
+  port: 5432
+  host: localhost
+
