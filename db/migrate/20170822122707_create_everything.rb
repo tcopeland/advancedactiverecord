@@ -6,7 +6,7 @@ class CreateEverything < ActiveRecord::Migration[5.1]
     end
 
     create_table :books do |t|
-      t.string :title
+      t.string :title, comment: 'The book title'
       t.timestamps
     end
 
@@ -29,7 +29,7 @@ class CreateEverything < ActiveRecord::Migration[5.1]
     end
 
     create_table :reviews do |t|
-      t.string :aasm_state, null: false
+      t.string :aasm_state, comment: 'The state of the review', null: false
       t.boolean :featured, null: false, default: false
       t.index [:book_id, :featured], unique: true, where: "featured = true"
       t.text :content, null: false
