@@ -4,6 +4,9 @@ class Review < ApplicationRecord
     def spamify!
       not_spam.map(&:spamify!)
     end
+    def featured
+      puts "ok"
+    end
   end
 
   module Publish
@@ -24,9 +27,15 @@ class Review < ApplicationRecord
   scope :featured, -> { where(featured: true) }
   scope :not_spam, -> { where.not(aasm_state: 'spam')}
   scope :mrf_scope, -> { featured.limit(1) }
+  scope :mrf2, -> { featured.last }
   scope :in_past_week, -> { where(arel_table[:created_at].gt(1.week.ago)) }
+  scope :oldish, -> { where(arel_table[:created_at].lt(1.month.ago)) }
 
   include AASM
+
+  def self.doit
+    oldish.create! book: Book.last, reviewer: Reviewer.first, content: "heyo"
+  end
 
   aasm do
     state :draft, initial: true

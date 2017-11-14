@@ -2,11 +2,16 @@ class Book < ApplicationRecord
   
   attribute :uuid, :string , default: -> { SecureRandom.uuid }
   
-  validates :uuid, presence: true, strict: true
+  validates :uuid, presence: {strict: true}
 
   has_and_belongs_to_many :authors
 
-  has_many :reviews do
+  # has_many :reviews do
+  #   def featured
+  #     where(featured: true).first
+  #   end
+  # end
+  has_many :reviews, -> { extending Review::Spamify } do
     def featured
       where(featured: true).first
     end
