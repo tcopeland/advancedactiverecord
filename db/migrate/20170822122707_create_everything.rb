@@ -38,5 +38,18 @@ class CreateEverything < ActiveRecord::Migration[5.1]
       t.references :reviewer, null: false, foreign_key: true
       t.timestamps
     end
+
+    enable_extension 'pgcrypto'
+
+    create_table :events, id: :uuid do |t|
+      t.text :payload
+      t.timestamps
+    end
+
+    create_table :event_audits do |t|
+      t.references :event, foreign_key: true, type: :uuid, null: false
+      t.string :notes, null: false
+    end
+
   end
 end

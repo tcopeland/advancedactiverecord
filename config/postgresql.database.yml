@@ -1,6 +1,6 @@
 development:
   adapter: postgresql
-  username: critic
+  username: wka
   database: critic_development
   template: template0
   port: 5432
@@ -8,7 +8,7 @@ development:
 
 test:
   adapter: postgresql
-  username: critic
+  username: wka
   database: critic_test
   template: template0
   port: 5432
