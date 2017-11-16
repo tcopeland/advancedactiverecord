@@ -9,4 +9,4 @@ gem 'aasm'
 gem 'faker'
 gem 'where_exists'
 gem 'byebug'
-
+gem 'nullalign'
