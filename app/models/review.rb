@@ -20,6 +20,7 @@ class Review < ApplicationRecord
   end
 
   validates :featured, uniqueness: {scope: :book, message: "review already exists for this book"}, if: Proc.new {|r| r.featured? }
+  validates :content, presence: true
 
   belongs_to :book
   belongs_to :reviewer
