@@ -15,3 +15,13 @@ fatal_e.authors << mikhail_b
 low_rating = Rating.create!(score: 1, approved: false, book: fatal_e)
 high_rating_fe = Rating.create!(score: 5, approved: true, book: fatal_e)
 high_rating_bk = Rating.create!(score: 5, approved: true, book: brothers_k)
+
+parent1_comment = Comment.create!(body: "I like Ruby")
+p1child1_comment = Comment.create!(body: "Me too!", parent: parent1_comment)
+p1child2_comment = Comment.create!(body: "And me!", parent: parent1_comment)
+p1child3_comment = Comment.create!(body: "Although refinements amirite?", parent: parent1_comment)
+
+parent2_comment = Comment.create!(body: "Rails is great")
+p2child1_comment = Comment.create!(body: "And how!", parent: parent2_comment)
+p2child2_comment = Comment.create!(body: "For reals!", parent: parent2_comment)
+p2child3_comment = Comment.create!(body: "Bring back RJS!", parent: parent2_comment)

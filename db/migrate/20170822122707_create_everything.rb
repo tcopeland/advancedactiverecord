@@ -51,5 +51,12 @@ class CreateEverything < ActiveRecord::Migration[5.1]
       t.string :notes, null: false
     end
 
+    create_table :comments do |t|
+      t.string :body, null: false
+      t.references :parent, index: true, foreign_key: {to_table: :comments}
+      t.timestamps
+    end
+
+
   end
 end
