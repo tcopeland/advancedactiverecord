@@ -57,6 +57,11 @@ class CreateEverything < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
+    create_table :ancestry_comments do |t|
+      t.string :body, null: false
+      t.string :ancestry, index: true
+      t.timestamps
+    end
 
   end
 end
