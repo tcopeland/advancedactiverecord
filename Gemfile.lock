@@ -48,6 +48,9 @@ GEM
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (9.1.0)
+    closure_tree (6.6.0)
+      activerecord (>= 4.1.0)
+      with_advisory_lock (>= 3.0.0)
     concurrent-ruby (1.0.5)
     erubi (1.6.1)
     faker (1.8.4)
@@ -114,6 +117,8 @@ GEM
     websocket-extensions (0.1.2)
     where_exists (1.0.1)
       rails (>= 3.2.22, < 6)
+    with_advisory_lock (3.2.0)
+      activerecord (>= 3.2)
 
 PLATFORMS
   ruby
@@ -124,6 +129,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap
   byebug
+  closure_tree
   faker
   nullalign
   pg

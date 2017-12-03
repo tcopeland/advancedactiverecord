@@ -63,5 +63,23 @@ class CreateEverything < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
+    create_table :ct_comments do |t|
+      t.string :body
+      t.integer :parent_id, index: true
+      t.timestamps
+    end
+
+    create_table :ct_comment_hierarchies, id: false do |t|
+      t.integer :ancestor_id, null: false
+      t.integer :descendant_id, null: false
+      t.integer :generations, null: false
+    end
+
+    add_index :ct_comment_hierarchies, [:ancestor_id, :descendant_id, :generations],
+      unique: true,
+      name: "ct_comment_anc_desc_idx"
+
+    add_index :ct_comment_hierarchies, [:descendant_id],
+      name: "ct_comment_desc_idx"
   end
 end
