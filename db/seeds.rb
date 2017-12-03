@@ -43,3 +43,11 @@ p1_ct_comment.children.create!(body: "Me too!")
 p1_ct_comment.children.create!(body: "And me!")
 p2_ct_comment = p1_ct_comment.children.create!(body: "Although refinements amirite?")
 p2_ct_comment.children.create!(body: "Well maybe")
+
+ttcomment1 = TtComment.create!(body: "I like Ruby")
+ttcomment2 = TtComment.create!(body: "Me too!")
+CommentLink.create!(parent: ttcomment1, child: ttcomment2)
+# p1child2_comment = Comment.create!(body: "And me!", parent: parent1_comment)
+# p1child3_comment = Comment.create!(body: "Although refinements amirite?", parent: parent1_comment)
+# pc3_comment = Comment.create!(body: "Well maybe", parent: p1child3_comment)
+#

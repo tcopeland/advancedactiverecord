@@ -81,5 +81,18 @@ class CreateEverything < ActiveRecord::Migration[5.1]
 
     add_index :ct_comment_hierarchies, [:descendant_id],
       name: "ct_comment_desc_idx"
+
+    create_table :tt_comments do |t|
+      t.string :body
+      t.timestamps
+    end
+    
+    create_table :comment_links do |t|
+      t.references :parent, index: true, foreign_key: {to_table: :tt_comments}
+      t.references :child, index: true, foreign_key: {to_table: :tt_comments}
+      t.timestamps
+    end
+    add_index :comment_links, [:parent_id, :child_id], unique: true
+    
   end
 end
