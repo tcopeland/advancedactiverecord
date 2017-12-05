@@ -8,6 +8,7 @@ class CreateEverything < ActiveRecord::Migration[5.1]
     create_table :books do |t|
       t.string :title, comment: 'The book title'
       t.string :uuid, null: false
+      t.string :isbn
       t.timestamps
     end
 

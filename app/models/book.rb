@@ -1,7 +1,14 @@
 class Book < ApplicationRecord
-  
+
+  class ISBN < ActiveRecord::Type::String
+    def serialize(value)
+      super.upcase if value.present?
+    end
+  end
+
   attribute :uuid, :string , default: -> { SecureRandom.uuid }
-  
+  attribute :isbn, :isbn
+
   validates :uuid, presence: {strict: true}
 
   has_and_belongs_to_many :authors
@@ -20,7 +27,7 @@ class Book < ApplicationRecord
   has_many :reviewers, through: :reviews
   has_many :all_ratings, -> { unscope(where: :approved) }, class_name: 'Rating'
   has_one :featured_review, -> { featured }, class_name: 'Review'
-  
+
   scope :reviewed_in_last_week, -> { joins(:reviews).merge(Review.in_past_week) }
 
 end
