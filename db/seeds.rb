@@ -8,7 +8,7 @@ brothers_k.authors << fyodor_d
 Review.create!(book: brothers_k, reviewer: reviewer2, content: "a classic").tap {|r| r.publish! }
 Review.create!(book: brothers_k, reviewer: reviewer1, content: "great", featured: true).tap {|r| r.publish! }
 
-fatal_e = Book.create!(title: "The Fatal Eggs")
+fatal_e = Book.create!(title: "The Fatal Eggs", asin: "abcd123456")
 mikhail_b = Author.create!(name: "Mikhail Bulgakov")
 fatal_e.authors << mikhail_b
 

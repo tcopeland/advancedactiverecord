@@ -1,1 +1,1 @@
-ActiveRecord::Type.register(:isbn, Book::ISBN)
+ActiveRecord::Type.register(:asin, Book::ASIN)

@@ -1,13 +1,13 @@
 class Book < ApplicationRecord
 
-  class ISBN < ActiveRecord::Type::String
+  class ASIN < ActiveRecord::Type::String
     def serialize(value)
       super.upcase if value.present?
     end
   end
 
   attribute :uuid, :string , default: -> { SecureRandom.uuid }
-  attribute :isbn, :isbn
+  attribute :asin, :asin
 
   validates :uuid, presence: {strict: true}
 
