@@ -7,7 +7,7 @@ class Book < ApplicationRecord
   end
 
   attribute :uuid, :string , default: -> { SecureRandom.uuid }
-  attribute :asin, :asin
+  attribute :asin, :my_asin
 
   validates :uuid, presence: {strict: true}
 

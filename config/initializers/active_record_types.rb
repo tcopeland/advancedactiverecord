@@ -1,1 +1,1 @@
-ActiveRecord::Type.register(:asin, Book::ASIN)
+ActiveRecord::Type.register(:my_asin, Book::ASIN)
