@@ -26,7 +26,7 @@ class Book < ApplicationRecord
   has_many :ratings
   has_many :reviewers, through: :reviews
   has_many :all_ratings, -> { unscope(where: :approved) }, class_name: 'Rating'
-  has_one :featured_review, -> { featured }, class_name: 'Review'
+  has_one :featured_review, -> { featured }, class_name: 'Review', inverse_of: :book
 
   scope :reviewed_in_last_week, -> { joins(:reviews).merge(Review.in_past_week) }
 
